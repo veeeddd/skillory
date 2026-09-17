@@ -1,11 +1,48 @@
 @import "tailwindcss";
 
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
 @theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+
+  /* Skillory Locked Color Tokens */
   --color-background: #0A0A0A;
   --color-foreground: #A3A3A3;
+  --color-card: #161616;
+  --color-card-foreground: #A3A3A3;
+  --color-popover: #161616;
+  --color-popover-foreground: #FFFFFF;
+  --color-primary: #FF6B1A;
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #262626;
+  --color-secondary-foreground: #FFFFFF;
+  --color-muted: #262626;
+  --color-muted-foreground: #A3A3A3;
+  --color-accent: #2DD4A7;
+  --color-accent-foreground: #0A0A0A;
+  --color-destructive: #EF4444;
+  --color-destructive-foreground: #FFFFFF;
+  --color-border: #262626;
+  --color-input: #262626;
+  --color-ring: #FF6B1A;
+
+  --radius-lg: 1rem;
+  --radius-md: calc(1rem - 2px);
+  --radius-sm: calc(1rem - 4px);
 }
 
-body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: #FFFFFF;
+  }
 }
